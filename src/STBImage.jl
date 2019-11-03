@@ -1,5 +1,6 @@
 module STBImage
 
-greet() = print("Hello World!")
+include("LibSTBImage.jl")
+using .LibSTBImage
 
 end # module
