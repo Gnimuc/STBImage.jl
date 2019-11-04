@@ -11,7 +11,7 @@ struct stbi_io_callbacks
     eof::Ptr{Cvoid}
 end
 
-# Skipping Typedef: CXType_FunctionProto stbi_write_func
+const stbi_write_func = Cvoid
 
 const STBIR_ALPHA_CHANNEL_NONE = -1
 const STBIR_FLAG_ALPHA_PREMULTIPLIED = 1 << 0
@@ -49,4 +49,3 @@ end
     STBIR_TYPE_FLOAT = 3
     STBIR_MAX_TYPES = 4
 end
-
