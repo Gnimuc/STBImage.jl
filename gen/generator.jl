@@ -1,12 +1,14 @@
 using Clang
 
 const STB_IMAGE_H = joinpath(@__DIR__, "..", "deps", "usr", "include", "stb_image.h") |> normpath
+const STB_IMAGE_WRITE_H = joinpath(@__DIR__, "..", "deps", "usr", "include", "stb_image_write.h") |> normpath
+const STB_IMAGE_RESIZE_H = joinpath(@__DIR__, "..", "deps", "usr", "include", "stb_image_resize.h") |> normpath
 
 # create a work context
 ctx = DefaultContext()
 
 # parse headers
-parse_headers!(ctx, [STB_IMAGE_H], args=map(x->"-I"*x, find_std_headers()), includes=[LLVM_INCLUDE])
+parse_headers!(ctx, [STB_IMAGE_H, STB_IMAGE_WRITE_H, STB_IMAGE_RESIZE_H], args=map(x->"-I"*x, find_std_headers()), includes=[LLVM_INCLUDE])
 
 # settings
 ctx.libname = "libstbimage"
